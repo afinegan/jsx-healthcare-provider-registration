@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
+import RegistrationForm from "./components/RegistrationForm";
+
+const theme = createTheme({
+    palette: {
+        background: {
+            default: '#f5f5f5', // Grey background
+            paper: '#ffffff', // White cards
+        },
+    }
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ThemeProvider theme={theme}>
+          <CssBaseline /> {/* This helps to apply the background color properly */}
+          <div style={{ margin: 20 }}>
+              <RegistrationForm/>
+          </div>
+      </ThemeProvider>
   );
 }
 
